@@ -130,6 +130,7 @@ tiktoken==0.14.0
 tokenizers==0.23.2
 toml==0.10.2
 torch==2.14.0+cpu
+torchvision==0.29.1
 # torchvision removed to avoid potential CUDA/compatibility issues on Streamlit Cloud
 tqdm==4.70.1
 transformers==5.17.0

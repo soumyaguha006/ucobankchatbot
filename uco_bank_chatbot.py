@@ -85,7 +85,7 @@ GENAI_CLIENT = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
 
 class GeminiLLM(LLM):
     """LangChain-compatible Gemini wrapper (Pydantic style)."""
-    model_name: str = "gemini-3.8-flash-lite"
+    model_name: str = "gemini-3.5-flash-lite"
     temperature: float = 1.0
     max_output_tokens: Optional[int] = None
 
@@ -110,7 +110,7 @@ class GeminiLLM(LLM):
     def _llm_type(self):
         return "gemini"
 
-def setup_gemini_llm(model_name="gemini-3.8-flash-lite", temperature=1.0):
+def setup_gemini_llm(model_name="gemini-3.5-flash-lite", temperature=1.0):
     # ensure the client is configured (load_dotenv already ran earlier)
     return GeminiLLM(model_name=model_name, temperature=temperature)
 
@@ -182,7 +182,7 @@ def main():
                 return
 
             qa_chain = RetrievalQA.from_chain_type(
-                llm=setup_gemini_llm(model_name="gemini-3.8-flash-lite", temperature=1.0),
+                llm=setup_gemini_llm(model_name="gemini-3.5-flash-lite", temperature=1.0),
                 chain_type="stuff",
                 retriever=vectorstore.as_retriever(search_kwargs={"k": 3}),
                 return_source_documents=True,
