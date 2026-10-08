@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import streamlit as st
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint, HuggingFaceEmbeddings
 from langchain_core.language_models.llms import LLM
-from google import genai
+import google.genai as genai
 from langchain_core.documents import Document
 from langchain_core.prompts import PromptTemplate
 from langchain_classic.chains import RetrievalQA
